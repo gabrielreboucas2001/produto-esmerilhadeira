@@ -566,14 +566,11 @@
     </style>
   <!-- Meta Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1331951311206233');
 fbq('track', 'PageView');
 </script>
@@ -655,9 +652,13 @@ src="https://www.facebook.com/tr?id=1331951311206233&ev=PageView&noscript=1"
         <span class="payment-methods">Cartões de crédito, débito, boleto ou PIX</span>
       </div>
       
-      <a class="buy-button pulse" href="https://checkout.oferta-do-dia.store/r/T3dr2S3206M0R0Z" target="_blank" rel="noopener">
-        <i class="fas fa-bolt"></i> COMPRAR COM DESCONTO
-      </a>
+     <!-- Botão principal modificado -->
+<a class="buy-button pulse" 
+   href="https://checkout.oferta-do-dia.store/r/T3dr2S3206M0R0Z" 
+   rel="noopener"
+   onclick="fbq('track', 'Purchase', {currency: 'BRL', value: 89.90});">
+   <i class="fas fa-bolt"></i> COMPRAR COM DESCONTO
+</a>
       
       <div class="secure-checkout">
         <i class="fas fa-lock"></i>
@@ -776,7 +777,7 @@ src="https://www.facebook.com/tr?id=1331951311206233&ev=PageView&noscript=1"
       <span class="floating-discount">55% OFF</span>
     </div>
     <span class="floating-installments">ou 3x de R$ 29,97 sem juros</span>
-    <button class="floating-buy-button" target="_blank" onclick="window.location.href='https://checkout.oferta-do-dia.store/r/T3dr2S3206M0R0Z'">
+    <button class="floating-buy-button" onclick="window.location.href='https://checkout.oferta-do-dia.store/r/T3dr2S3206M0R0Z'">
       <i class="fas fa-bolt"></i> COMPRAR COM DESCONTO
     </button>
   </div>
