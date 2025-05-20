@@ -652,13 +652,10 @@ src="https://www.facebook.com/tr?id=1331951311206233&ev=PageView&noscript=1"
         <span class="payment-methods">Cartões de crédito, débito, boleto ou PIX</span>
       </div>
       
-     <!-- Botão principal modificado -->
-<a class="buy-button pulse" 
-   href="https://checkout.oferta-do-dia.store/r/T3dr2S3206M0R0Z" 
-   rel="noopener"
-   onclick="fbq('track', 'Purchase', {currency: 'BRL', value: 89.90});">
-   <i class="fas fa-bolt"></i> COMPRAR COM DESCONTO
-</a>
+     <!-- Substitua o botão principal por este: -->
+<button class="buy-button pulse" id="main-buy-button">
+  <i class="fas fa-bolt"></i> COMPRAR COM DESCONTO
+</button>
       
       <div class="secure-checkout">
         <i class="fas fa-lock"></i>
@@ -777,9 +774,10 @@ src="https://www.facebook.com/tr?id=1331951311206233&ev=PageView&noscript=1"
       <span class="floating-discount">55% OFF</span>
     </div>
     <span class="floating-installments">ou 3x de R$ 29,97 sem juros</span>
-    <button class="floating-buy-button" onclick="window.location.href='https://checkout.oferta-do-dia.store/r/T3dr2S3206M0R0Z'">
-      <i class="fas fa-bolt"></i> COMPRAR COM DESCONTO
-    </button>
+    <!-- Mantenha o botão flutuante como está: -->
+<button class="floating-buy-button" id="floating-buy-button">
+  <i class="fas fa-bolt"></i> COMPRAR COM DESCONTO
+</button>
   </div>
 </div>
 
@@ -892,5 +890,29 @@ src="https://www.facebook.com/tr?id=1331951311206233&ev=PageView&noscript=1"
     transform: translateY(-2px);
   }
 </style>
+
+  <!-- Adicione este script antes do </body>: -->
+<script>
+// Configuração do redirecionamento com rastreamento
+function handlePurchase() {
+  // Dispara o evento de compra
+  fbq('track', 'Purchase', {
+    currency: 'BRL',
+    value: 89.90,
+    content_name: 'Esmerilhadeira Angular GWS700',
+    content_ids: ['PROD123'],
+    content_type: 'product'
+  });
+  
+  // Redireciona após breve delay para garantir o rastreamento
+  setTimeout(function() {
+    window.location.href = 'https://checkout.oferta-do-dia.store/r/T3dr2S3206M0R0Z';
+  }, 200);
+}
+
+// Event listeners para ambos os botões
+document.getElementById('main-buy-button').addEventListener('click', handlePurchase);
+document.getElementById('floating-buy-button').addEventListener('click', handlePurchase);
+</script>
 </body>
 </html>
