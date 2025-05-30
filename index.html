@@ -769,130 +769,10 @@ src="https://www.facebook.com/tr?id=1331951311206233&ev=PageView&noscript=1"
   </script>
   
   
-  <!-- Adicione este div antes do fechamento do body -->
-<div class="floating-price-container" id="floatingPrice">
-  <div class="floating-price-content">
-    <div class="floating-current-price">
-      <span class="floating-price">R$ 89,90</span>
-      <span class="floating-discount">55% OFF</span>
-    </div>
-    <span class="floating-installments">ou 3x de R$ 29,97 sem juros</span>
-    <!-- Mantenha o botão flutuante como está: -->
-<button class="floating-buy-button" id="floating-buy-button">
-  <i class="fas fa-bolt"></i> COMPRAR COM DESCONTO
-</button>
-  </div>
-</div>
+ 
 
-<script>
-  // Elementos originais que vamos observar
-  const priceBox = document.querySelector('.price-box');
-  const floatingPrice = document.getElementById('floatingPrice');
-  
-  // Opções para o IntersectionObserver
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-  
-  // Callback para quando o elemento original sair da viewport
-  const callback = (entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        // Mostra o elemento flutuante quando o original sai da tela
-        floatingPrice.style.display = 'block';
-      } else {
-        // Esconde o elemento flutuante quando o original está visível
-        floatingPrice.style.display = 'none';
-      }
-    });
-  };
-  
-  // Cria o observer e começa a observar o elemento original
-  const observer = new IntersectionObserver(callback, options);
-  observer.observe(priceBox);
-  
-  // Adiciona responsividade para telas pequenas
-  window.addEventListener('resize', function() {
-    if (window.innerWidth < 768) {
-      floatingPrice.style.maxWidth = '95%';
-    } else {
-      floatingPrice.style.maxWidth = '400px';
-    }
-  });
-</script>
-<style>
-  /* Estilos para o elemento flutuante */
-  .floating-price-container {
-    position: fixed;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    max-width: 400px;
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    z-index: 1000;
-    display: none;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-  }
-  
-  .floating-price-content {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .floating-current-price {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .floating-price {
-    color: var(--secondary-color);
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-  
-  .floating-discount {
-    background-color: var(--danger-color);
-    color: white;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: bold;
-  }
-  
-  .floating-installments {
-    font-size: 1rem;
-    color: var(--text-color);
-  }
-  
-  .floating-buy-button {
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 0;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: var(--transition);
-    text-transform: uppercase;
-    text-align: center;
-  }
-  
-  .floating-buy-button:hover {
-    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-    transform: translateY(-2px);
-  }
-</style>
+
+
 
   <!-- Adicione este script antes do </body>: -->
 <script>
@@ -915,7 +795,6 @@ function handlePurchase() {
 
 // Event listeners para ambos os botões
 document.getElementById('main-buy-button').addEventListener('click', handlePurchase);
-document.getElementById('floating-buy-button').addEventListener('click', handlePurchase);
 </script>
 </body>
 </html>
